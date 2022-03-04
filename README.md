@@ -1,0 +1,1 @@
+# automacao_lojasamericanas_robot
