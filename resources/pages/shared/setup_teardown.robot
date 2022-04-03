@@ -4,7 +4,7 @@ resource  ${EXECDIR}/resources/main.robot
 
 *** Keywords ***
 abrir site
-  Open Browser  https://www.americanas.com.br/  chrome
+  Open Browser  https://wwwhomolog.go.gov.br/  chrome
   Maximize Browser Window
 
 fechar navegador
