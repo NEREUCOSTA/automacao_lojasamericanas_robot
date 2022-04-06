@@ -16,13 +16,14 @@ Cenário 2 : acessar conta
   Dado que pesquiso o servico "Emitir segunda via da fatura de água e ou esgoto"
   Quando clico no botao acessar
   E clico botao continuar sem login
-  Entao vejo a tela Emitir segunda via da fatura de água e/ou esgoto
+  Então vejo a tela Emitir segunda via da fatura de água e/ou esgoto
 
 Cenário 3: buscar fatura pela conta
-  Dado que estou na tela Emitir segunda via da fatura de água e/ou esgoto
-  Quando clico no campo numero da conta
-  E clico no campo digito
-  E clico no campo CPF
+  [tags]  3  smoke
+  Dado que acesso o serviço "Emitir segunda via da fatura de água e ou esgoto"
+  Quando digito "${cliente.numero_da_conta}" no campo numero da conta
+  E digito "${cliente.digito}" no campo dígito
+  E digito "${cliente.cpf}" no campo CPF
   E clico no botao consultar
   Então vejo a tela Faturas em Aberto
 

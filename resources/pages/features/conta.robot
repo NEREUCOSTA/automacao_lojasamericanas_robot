@@ -1,32 +1,32 @@
 *** Settings ***
 resource  ${EXECDIR}/resources/main.robot
-library  SeleniumLibrary
 
 *** Variables ***
-&{busca}
+&{conta}
 ...  result_area=//html/body/app-root/app-main/div/div/app-sidenav/div/div
 ...  field_numero_conta=//input[@formcontrolname="unidade"]
 ...  field_digito=//div[@class="mat-form-field-flex ng-tns-c152-12"]
 ...  field_cpf=//input[@placeholder="Informe o CPF ou CNPJ"]
-...  btn_consultar=//button[@class="consultaBtn"]
-
+...  btn_consultar=//button/span[text()="Consultar"]
 
 *** keywords ***
-digito no campo numero da conta
-    Wait Until Element Is Visible    ${busca.field_numero_conta}
-    input text                       ${busca.field_numero_conta}  54015  
+digito "${nrconta}" no campo numero da conta
+    Wait Until Element Is Visible    ${conta.field_numero_conta}
+    input text                       ${conta.field_numero_conta}  ${nrconta}   
 
-clico no campo digito
-    Wait Until Element Is Visible    ${busca.field_digito}
-    input text                       ${busca.field_digito}  3  
+digito "${digito}" no campo dígito
+    Wait Until Element Is Visible    ${conta.field_digito}
+    Press Keys                       ${conta.field_digito}  ${digito}   
 
-clico no campo CPF
-    Wait Until Element Is Visible    ${busca.field_cpf}
-    input text                       ${busca.field_cpf}  83969713153​   
+digito "${cpf}" no campo CPF
+    Wait Until Element Is Visible    ${conta.field_cpf}
+    input text                       ${conta.field_cpf}  ${cpf}  
 
 clico no botao consultar
-    Wait Until Element Is Visible    ${busca.field_cpf}
-    Click Element                    ${busca.field_cpf}
+    Wait Until Element Is Visible    ${conta.btn_consultar}
+    Click Element                    ${conta.btn_consultar}
 
-
-
+vejo a tela Faturas em Aberto
+    Wait Until Page Contains  Faturas em Aberto
+    Sleep  10s
+    
